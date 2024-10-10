@@ -3,6 +3,7 @@
 import { ApexOptions } from "apexcharts";
 
 import ApexChart from "./apex_chart";
+import { NoSSR } from "@/components";
 const ParcelChart = () => {
   const options: ApexOptions = {
     chart: {
@@ -54,7 +55,13 @@ const ParcelChart = () => {
       ],
     },
   ];
-  return <ApexChart options={options} series={series} type="bar" />;
+  return (
+    <NoSSR>
+      {typeof window !== "undefined" && (
+        <ApexChart options={options} series={series} type="bar" />
+      )}
+    </NoSSR>
+  );
 };
 
 export default ParcelChart;

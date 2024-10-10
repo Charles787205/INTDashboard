@@ -1,6 +1,7 @@
 "use client";
 import { ApexOptions } from "apexcharts";
 import ApexChart from "./apex_chart";
+import { NoSSR } from "@/components";
 const ParcelTypeChart = () => {
   const options: ApexOptions = {
     chart: {
@@ -44,12 +45,16 @@ const ParcelTypeChart = () => {
     },
   ];
   return (
-    <ApexChart
-      colors={["#0000", "#00FF00"]}
-      options={options}
-      series={series}
-      type="bar"
-    />
+    <NoSSR>
+      {typeof window !== "undefined" && (
+        <ApexChart
+          colors={["#0000", "#00FF00"]}
+          options={options}
+          series={series}
+          type="bar"
+        />
+      )}
+    </NoSSR>
   );
 };
 

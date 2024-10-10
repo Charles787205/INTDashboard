@@ -1,13 +1,31 @@
 "use client";
-import {
-  SidePanel,
-  ParcelChart,
-  ParcelTypeChart,
-  LocationChart,
-} from "@/components";
-import Map from "@/components/map";
+import { SidePanel } from "@/components";
+import { useEffect, useState } from "react";
+
 import Link from "next/link";
+import dynamic from "next/dynamic";
+
+const ParcelChart = dynamic(() => import("@/components/parcel_chart"), {
+  ssr: false,
+});
+const ParcelTypeChart = dynamic(
+  () => import("@/components/parcel_type_chart"),
+  {
+    ssr: false,
+  }
+);
+const LocationChart = dynamic(() => import("@/components/location_chart"), {
+  ssr: false,
+});
+const Map = dynamic(() => import("@/components/map"), {
+  ssr: false,
+});
+
 const Dashboard = () => {
+  const [isClient, setIsClient] = useState(false);
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
   return (
     <div className="flex flex-col w-full">
       <div className="flex flex-col ">

@@ -1,8 +1,16 @@
 "use client";
-import { ApexChart } from "@/components";
+import dynamic from "next/dynamic";
 import { ApexOptions } from "apexcharts";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
+const ApexChart = dynamic(() => import("@/components/apex_chart"), {
+  ssr: false,
+});
 const ParcelVolume = () => {
+  const [isClient, setIsClient] = useState(false);
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
   const [isHorizontal, setIsHorizontal] = useState(false);
   const options: ApexOptions = {
     chart: {

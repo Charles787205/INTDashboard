@@ -1,4 +1,4 @@
-import { SidePanel } from "@/components";
+import { NoSSR, SidePanel } from "@/components";
 export default function layout({
   children,
 }: Readonly<{

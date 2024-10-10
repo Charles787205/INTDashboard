@@ -1,5 +1,6 @@
 "use client";
 import { Icon } from "leaflet";
+import { NoSSR } from "@/components";
 
 import dynamic from "next/dynamic";
 
@@ -35,23 +36,27 @@ const Map = () => {
   });
   return (
     <div className="h-[450px] ">
-      <MapContainer
-        style={{ height: "450px", width: "100%" }}
-        center={[7.032494617551201, 125.51095535258905]}
-        zoom={13}
-        scrollWheelZoom={false}
-      >
-        <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
-        <Marker
-          position={[7.046490823147216, 125.53481580943227]}
-          icon={customIcon}
-        >
-          <Popup>11.82%</Popup>
-        </Marker>
-      </MapContainer>
+      <NoSSR>
+        {typeof window !== "undefined" && (
+          <MapContainer
+            style={{ height: "450px", width: "100%" }}
+            center={[7.032494617551201, 125.51095535258905]}
+            zoom={13}
+            scrollWheelZoom={false}
+          >
+            <TileLayer
+              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            />
+            <Marker
+              position={[7.046490823147216, 125.53481580943227]}
+              icon={customIcon}
+            >
+              <Popup>11.82%</Popup>
+            </Marker>
+          </MapContainer>
+        )}
+      </NoSSR>
     </div>
   );
 };

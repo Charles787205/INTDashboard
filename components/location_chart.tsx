@@ -1,6 +1,6 @@
 "use client";
+import { NoSSR } from "@/components";
 import ApexChart from "./apex_chart";
-import { useState } from "react";
 
 const LocationChart = () => {
   const chartData = {
@@ -56,11 +56,15 @@ const LocationChart = () => {
   };
 
   return (
-    <ApexChart
-      options={chartData.options}
-      series={chartData.series}
-      type="donut"
-    />
+    <NoSSR>
+      {typeof window !== "undefined" && (
+        <ApexChart
+          options={chartData.options}
+          series={chartData.series}
+          type="donut"
+        />
+      )}
+    </NoSSR>
   );
 };
 
