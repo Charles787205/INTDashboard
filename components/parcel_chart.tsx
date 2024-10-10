@@ -1,11 +1,9 @@
 "use client";
 
 import { ApexOptions } from "apexcharts";
-import { useEffect, useState } from "react";
+
 import ApexChart from "./apex_chart";
 const ParcelChart = () => {
-  const [isClient, setIsClient] = useState(false);
-
   const options: ApexOptions = {
     chart: {
       id: "basic-bar",

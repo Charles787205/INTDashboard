@@ -1,11 +1,9 @@
 "use client";
 import { Icon } from "leaflet";
 
-import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 
 const Map = () => {
-  const [isClient, setIsClient] = useState(false);
   const MapContainer = dynamic(
     () => import("react-leaflet").then((mod) => mod.MapContainer),
     {
@@ -30,10 +28,6 @@ const Map = () => {
       ssr: false,
     }
   );
-
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
 
   const customIcon = new Icon({
     iconUrl: "/marker.png",

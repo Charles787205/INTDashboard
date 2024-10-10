@@ -1,9 +1,9 @@
 "use client";
 import ApexChart from "./apex_chart";
-import { useEffect, useState } from "react";
-import { ApexOptions } from "apexcharts";
+import { useState } from "react";
+
 const LocationChart = () => {
-  const [chartData, setChartData] = useState({
+  const chartData = {
     series: [
       647, 961, 426, 167, 10, 1, 207, 296, 59, 429, 325, 155, 234, 3, 50, 471,
       1033,
@@ -53,7 +53,7 @@ const LocationChart = () => {
         height: 230,
       },
     },
-  });
+  };
 
   return (
     <ApexChart
