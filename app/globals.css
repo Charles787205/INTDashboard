@@ -1,18 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
 
 body {
   color: var(--foreground);
@@ -24,4 +13,16 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+#hero-image {
+  background: url("/int_cpu1.jpeg") no-repeat center center/cover;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+#login_div {
+  background: url("/logistic.jpg") repeat center center/cover;
 }
