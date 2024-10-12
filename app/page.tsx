@@ -32,7 +32,7 @@ const Dashboard = () => {
         <h1 className="text-3xl font-bold">John Doe</h1>
         <h2 className="text-lg font-semibold text-neutral-600">Coordinator</h2>
       </div>
-      <div className="flex [&>*]:min-w-[350px] justify-evenly">
+      <div className="flex [&>*]:min-w-[200px] justify-evenly">
         <Link
           href="/parcel_volume"
           className="flex flex-col  p-4 bg-gradient-to-r from-amber-600 to-amber-500 text-white rounded-lg shadow-lg mb-10 cursor-pointer hover:bg-gradient-to-l transition-all duration-1000 ease-in-out"
