@@ -4,6 +4,7 @@ import ParcelTypeChart from "./parcel_type_chart";
 import LocationChart from "./location_chart";
 import ApexChart from "./apex_chart";
 import NoSSR from "./no_ssr";
+import Provider from "./provider";
 export {
   SidePanel,
   ParcelChart,
@@ -11,4 +12,5 @@ export {
   LocationChart,
   ApexChart,
   NoSSR,
+  Provider,
 };
