@@ -15,18 +15,15 @@ export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const router = useRouter();
   return (
-    <div className="flex justify-center lg:items-center h-screen bg-neutral-100 m-0 bg-gradient-to-t from-amber-300 to-yellow-100 ">
+    <div className="flex justify-center lg:items-center h-screen bg-neutral-100 m-0 bg-gradient-to-b from-amber-200  to-yellow-50 ">
       <div
         id="login_div"
         className="w-screen h-screen absolute top-0 left-0 z-10 opacity-15"
       ></div>
-      <div className="flex shadow-xl flex-col md:flex-row shadow-yellow-500 z-20  opacity-100  h-[25~em]  bg-neutral-50 overflow-hidden rounded-lg ">
-        <div className="" id="hero-image">
-          <div className="w-full "></div>
-        </div>
-        <div className="flex items-center flex-col p-8">
+      <div className="flex shadow-xl flex-col md:flex-row bg-transparent bg-opacity-25 backdrop-blur-sm border-2 border-white shadow-neutral-500 z-20   h-[25em]  overflow-hidden rounded-lg relative ">
+        <div className="flex items-center flex-col p-8 z-20">
           <Image src="/int_icon.png" height={150} width={150} alt="INT LOGO" />
-          <h1 className="text-2xl font-bold">Welcome to INT Dashboard</h1>
+          <h1 className="text-3xl font-extrabold">Welcome to INT Dashboard</h1>
 
           {/*
             
@@ -63,7 +60,7 @@ export default function Login() {
             */}
 
           <button
-            className="bg-amber-300 mt-auto hover:bg-amber-200 flex justify-center  items-center mb-10 rounded-lg  py-2 w-full font-semibold ease-in-out duration-300"
+            className="bg-amber-300 mt-auto hover:bg-amber-200 flex justify-center  items-center mb-10 rounded-lg  py-2 w-full font-semibold ease-in-out duration-300 shadow "
             onClick={async () => {
               await onLogin();
             }}

@@ -32,7 +32,7 @@ const Dashboard = () => {
         <h1 className="text-3xl font-bold">John Doe</h1>
         <h2 className="text-lg font-semibold text-neutral-600">Coordinator</h2>
       </div>
-      <div className="flex [&>*]:min-w-[350px] justify-evenly">
+      <div className="flex [&>*]:w-full gap-4 justify-evenly">
         <Link
           href="/parcel_volume"
           className="flex flex-col  p-4 bg-gradient-to-r from-amber-600 to-amber-500 text-white rounded-lg shadow-lg mb-10 cursor-pointer hover:bg-gradient-to-l transition-all duration-1000 ease-in-out"
@@ -50,12 +50,6 @@ const Dashboard = () => {
         </div>
       </div>
       <div className="grid grid-cols-2 gap-5 ">
-        <div className="flex flex-col">
-          <div className="flex flex-col p-4 bg-gradient-to-r bg-neutral-100   rounded-lg shadow-lg mb-10">
-            <p className="text-lg font-bold">Total Sales</p>
-            <p className="text-4xl font-bold">20,000 Php</p>
-          </div>
-        </div>
         <div className="rounded">
           <Map />
         </div>
