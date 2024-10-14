@@ -57,7 +57,7 @@ const Upload = () => {
                     colNumber == 1 ||
                     colNumber == 3 ||
                     colNumber == 4 ||
-                    colNumber == 6 ||
+                    colNumber == 7 ||
                     colNumber == 9
                   ) {
                     rowValues.push(cell.value.toString());

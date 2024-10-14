@@ -146,7 +146,7 @@ const Map = () => {
               positions={bagoAplayaCoords}
             >
               <Tooltip direction="bottom" offset={[0, 20]} opacity={1} sticky>
-                Bago Aplaya: 10%
+                Bago Aplaya: 11.82%
               </Tooltip>
             </Polygon>
             <Polygon
@@ -154,17 +154,17 @@ const Map = () => {
               positions={bagoGalleraCoords}
             >
               <Tooltip direction="bottom" offset={[0, 20]} opacity={1} sticky>
-                Bago Gallera: 50%
+                Bago Gallera: 17.56%
               </Tooltip>
             </Polygon>
             <Polygon pathOptions={{ color: "red" }} positions={dumoyCoords}>
               <Tooltip direction="bottom" offset={[0, 20]} opacity={1} sticky>
-                Dumoy: 50%
+                Dumoy: 7.84%
               </Tooltip>
             </Polygon>
             <Polygon pathOptions={{ color: "green" }} positions={daliaoCoords}>
               <Tooltip direction="bottom" offset={[0, 20]} opacity={1} sticky>
-                Daliao: 50%
+                Daliao: 5.51%
               </Tooltip>
             </Polygon>
           </MapContainer>

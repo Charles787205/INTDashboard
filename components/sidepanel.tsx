@@ -26,7 +26,7 @@ const SidePanel = () => {
         width={isExpanded ? 150 : 50}
         height={isExpanded ? 150 : 50}
         alt="INT Icon"
-        className="mx-auto "
+        className="mx-auto mb-4"
       />
       <ul className="flex flex-col font-bold text-lg [&>*]:flex [&>*]:gap-4 h-full ">
         <Link
@@ -57,14 +57,24 @@ const SidePanel = () => {
           {isExpanded ? "Upload" : ""}
           {isExpanded ? "File" : ""}
         </Link>
-        <li
+        <Link
+          href="/fleet"
           className={`py-4 ${
             isExpanded ? "px-10" : "px-5"
           } text-neutral-200 hover:bg-neutral-800 ease-in-out duration-300 cursor-pointer hover:text-yellow-400`}
         >
-          <span className="material-symbols-outlined">settings</span>{" "}
-          {isExpanded ? "Settings" : ""}
-        </li>
+          <span className="material-symbols-outlined">two_wheeler</span>{" "}
+          {isExpanded ? "Fleet" : ""}
+        </Link>
+        <Link
+          href="/payroll"
+          className={`py-4 ${
+            isExpanded ? "px-10" : "px-5"
+          } text-neutral-200 hover:bg-neutral-800 ease-in-out duration-300 cursor-pointer hover:text-yellow-400`}
+        >
+          <span className="material-symbols-outlined">payments</span>{" "}
+          {isExpanded ? "Payroll" : ""}
+        </Link>
         <li
           onClick={() => signOut()}
           className={`py-4 mt-auto mb-10 ${
