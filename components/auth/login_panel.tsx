@@ -34,7 +34,12 @@ const LoginPanel = ({ setIsRegister }: { setIsRegister: Function }) => {
   return (
     <div className="flex shadow-xl flex-col md:flex-row bg-transparent bg-opacity-25 backdrop-blur-sm border-2 border-white shadow-neutral-500 z-20   min-h-[25em]  max-h-[600px] overflow-hidden rounded-lg relative ">
       <div className="flex items-center flex-col p-8 z-20">
-        <Image src="/int_icon.png" height={150} width={150} alt="INT LOGO" />
+        <Image
+          src="/images/int_icon.png"
+          height={150}
+          width={150}
+          alt="INT LOGO"
+        />
         <h1 className="text-3xl font-extrabold">Welcome to INT Dashboard</h1>
 
         <p className="self-start mt-5">Username:</p>
