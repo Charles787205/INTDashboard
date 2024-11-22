@@ -2,32 +2,23 @@
 import { NoSSR } from "@/components";
 import ApexChart from "./apex_chart";
 
-const LocationChart = () => {
+const LocationChart = ({
+  data,
+}: {
+  data: {
+    name: string;
+    data: {
+      total: number;
+      success: number;
+      failed: number;
+      pending: number;
+    };
+  }[];
+}) => {
   const chartData = {
-    series: [
-      647, 961, 426, 167, 10, 1, 207, 296, 59, 429, 325, 155, 234, 3, 50, 471,
-      1033,
-    ], // Data for the donut chart
+    series: [...data.map((val) => val.data.success)], // Data for the donut chart
     options: {
-      labels: [
-        "Bago Aplaya",
-        "Bago Gallera",
-        "Baliok",
-        "Bangkas",
-        "Cat. Grande",
-        "Cat. Pqueno",
-        "Crossing Bayabas",
-        "Daliao",
-        "Deca Talomo",
-        "Dumoy",
-        "Lizada Pob.",
-        "Lubogan",
-        "Mintal",
-        "Mis Sort",
-        "Pequeno",
-        "Tacunan",
-        "Toril",
-      ],
+      labels: [...data.map((val) => val.name)],
       chart: {
         type: "donut",
       },
@@ -54,6 +45,19 @@ const LocationChart = () => {
       },
     },
   };
+  const series: ApexAxisChartSeries = [
+    {
+      name: "Number of Parcels Delivered",
+      data: [
+        ...data.map((area) => {
+          return {
+            x: area.name,
+            y: area.data.success,
+          };
+        }),
+      ],
+    },
+  ];
 
   return (
     <NoSSR>

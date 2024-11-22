@@ -1,6 +1,7 @@
+import { CourierType } from "@/types";
 import CourierRow from "./courier_row";
 
-const CourierPane = () => {
+const CourierPane = ({ couriers }: { couriers: CourierType[] }) => {
   return (
     <div className="flex flex-col p-5 overflow-auto">
       <div className="flex gap-3 ">
@@ -34,25 +35,27 @@ const CourierPane = () => {
               <th>Vehicle Type</th>
               <th>Status</th>
               <th>Hub</th>
-              <th>Email</th>
-              <th>Gcash Number</th>
-              <th>Gcash Name</th>
+              <th>Plate Number</th>
             </tr>
           </thead>
           <tbody>
-            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15].map((_, index) => (
-              <tr className="even:bg-amber-100 text-center  min-w-full cursor-pointer hover:bg-blue-600 hover:text-white">
-                <td>{index + 1}</td>
-                <td className="min-w-40">John Doe</td>
-                <td className="min-w-40">09123456789</td>
-                <td className="min-w-40">Motorcycle</td>
-                <td className="min-w-30">Active</td>
-                <td className="min-w-40">Bago Aplaya</td>
-                <td className="min-w-40">john@example.com</td>
-                <td className="min-w-40">09123456789</td>
-                <td className="min-w-40">John Doe</td>
-              </tr>
-            ))}
+            {couriers &&
+              couriers.map((courier, index) => (
+                <tr
+                  key={index}
+                  className="even:bg-amber-100 text-center  min-w-full cursor-pointer hover:bg-blue-600 hover:text-white"
+                >
+                  <td>{index + 1}</td>
+                  <td className="min-w-40">{`${courier.first_name} ${courier.middle_name} ${courier.last_name}`}</td>
+                  <td className="min-w-40">{courier.phone_number}</td>
+                  <td className="min-w-40">{courier.courier_type}</td>
+                  <td className="min-w-30">
+                    {courier.is_active ? "Active" : "Not Active"}
+                  </td>
+                  <td className="min-w-40">{courier.courier_hub.name}</td>
+                  <td className="min-w-40">{courier.plate_number}</td>
+                </tr>
+              ))}
           </tbody>
         </table>
       </div>

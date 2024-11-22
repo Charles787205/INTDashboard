@@ -4,40 +4,32 @@ import { ApexOptions } from "apexcharts";
 
 import ApexChart from "./apex_chart";
 import { NoSSR } from "@/components";
-const ParcelChart = () => {
+const ParcelChart = ({
+  data,
+}: {
+  data: {
+    name: string;
+    data: {
+      total: number;
+      success: number;
+      failed: number;
+      pending: number;
+    };
+  }[];
+}) => {
   const options: ApexOptions = {
     chart: {
       id: "basic-bar",
+      stacked: true,
     },
 
-    xaxis: {
-      categories: [
-        "Bago Aplaya",
-        "Bago Gallera",
-        "Baliok",
-        "Bangkas",
-        "Cat. Grande",
-        "Cat. Pqueno",
-        "Crossing Bayabas",
-        "Daliao",
-        "Deca Talomo",
-        "Dumoy",
-        "Lizada Pob.",
-        "Lubogan",
-        "Mintal",
-        "Mis Sort",
-        "Pequeno",
-        "Tacunan",
-        "Toril",
-      ],
-    },
     plotOptions: {
       bar: {
-        horizontal: true,
+        horizontal: false,
       },
     },
     title: {
-      text: "Number of Parcels Delivered",
+      text: "Number of Parcels",
       align: "center",
       style: {
         fontSize: "20px",
@@ -46,13 +38,54 @@ const ParcelChart = () => {
       },
     },
   };
-  const series = [
+  const series: ApexAxisChartSeries = [
     {
       name: "Number of Parcels",
       data: [
-        647, 961, 426, 167, 10, 1, 207, 296, 59, 429, 325, 155, 234, 3, 50, 471,
-        1033,
+        ...data.map((area) => {
+          return { x: area.name, y: area.data.total };
+        }),
       ],
+      color: "#00c9ff",
+    },
+    {
+      name: "Success",
+      group: "something",
+      data: [
+        ...data.map((area) => {
+          return {
+            x: area.name,
+            y: Math.ceil(area.data.success),
+          };
+        }),
+      ],
+      color: "#04dc00",
+    },
+    {
+      name: "Failed",
+      group: "something",
+      data: [
+        ...data.map((area) => {
+          return {
+            x: area.name,
+            y: Math.floor(area.data.failed),
+          };
+        }),
+      ],
+      color: "#FF422C",
+    },
+    {
+      name: "Pending",
+      group: "something",
+      data: [
+        ...data.map((area) => {
+          return {
+            x: area.name,
+            y: Math.floor(area.data.pending),
+          };
+        }),
+      ],
+      color: "#808080",
     },
   ];
   return (

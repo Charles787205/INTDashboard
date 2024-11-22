@@ -1,20 +1,24 @@
 "use client";
 import { ApexOptions } from "apexcharts";
-import ApexChart from "./apex_chart";
-import { NoSSR } from "@/components";
-const ParcelTypeChart = () => {
+import dynamic from "next/dynamic";
+const ParcelTypeChart = ({
+  data,
+}: {
+  data: {
+    pouches: number;
+    bulkies: number;
+  };
+}) => {
+  const ApexChart = dynamic(() => import("react-apexcharts"), { ssr: false });
+
   const options: ApexOptions = {
     chart: {
       id: "basic-bar",
       foreColor: "#373d3f",
-      dropShadow: {
-        enabled: true,
-        enabledOnSeries: undefined,
-        top: 0,
-        left: 0,
-        blur: 3,
-        color: "#000",
-        opacity: 0.35,
+    },
+    plotOptions: {
+      bar: {
+        horizontal: true,
       },
     },
     fill: {
@@ -35,26 +39,24 @@ const ParcelTypeChart = () => {
       },
     },
   };
+  console.log(data);
   const series = [
     {
       name: "Number of Parcels",
       data: [
-        { y: 4136, x: "Pouches", color: "#FF0000" },
-        { x: "Bulky", y: 1338 },
+        { y: data.pouches, x: "Pouches" },
+        { x: "Bulky", y: data.bulkies },
       ],
     },
   ];
   return (
-    <NoSSR>
-      {typeof window !== "undefined" && (
-        <ApexChart
-          colors={["#0000", "#00FF00"]}
-          options={options}
-          series={series}
-          type="bar"
-        />
-      )}
-    </NoSSR>
+    <ApexChart
+      className="w-full h-full"
+      colors={["#0000", "#00FF00"]}
+      options={options}
+      series={series}
+      type="bar"
+    />
   );
 };
 

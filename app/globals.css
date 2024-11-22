@@ -16,7 +16,7 @@ body {
 }
 
 #hero-image {
-  background: url("/int_cpu1.jpeg") no-repeat center center/cover;
+  background: url("/images/int_cpu1.jpeg") no-repeat center center/cover;
 }
 
 .material-symbols-outlined {
@@ -24,5 +24,9 @@ body {
 }
 
 #login_div {
-  background: url("/logistic.jpg") no-repeat center center/cover;
+  background: url("/images/logistic.jpg") no-repeat center center/cover;
+}
+
+button {
+  @apply ease-in-out duration-150 hover:scale-105;
 }

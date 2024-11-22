@@ -22,13 +22,13 @@ const SidePanel = () => {
         </span>
       </div>
       <Image
-        src="/int_icon.png"
+        src="/images/int_icon.png"
         width={isExpanded ? 150 : 50}
         height={isExpanded ? 150 : 50}
         alt="INT Icon"
         className="mx-auto mb-4"
       />
-      <ul className="flex flex-col font-bold text-lg [&>*]:flex [&>*]:gap-4 h-full ">
+      <ul className="flex flex-col font-bold   [&>*]:flex [&>*]:gap-4 h-full ">
         <Link
           href="/"
           className={`${currentUrl == "/" && listItemActiveClass} py-4 ${
@@ -39,27 +39,38 @@ const SidePanel = () => {
           {isExpanded ? "Dashboard" : ""}
         </Link>
 
-        <li
+        <Link
+          href="/users/"
           className={`py-4 ${
             isExpanded ? "px-10" : "px-5"
           } text-neutral-200 hover:bg-neutral-800 ease-in-out duration-300 cursor-pointer hover:text-yellow-400"`}
         >
           <span className="material-symbols-outlined">group</span>
           {isExpanded ? "Users" : ""}
-        </li>
+        </Link>
         <Link
-          href="/upload"
+          href="/parcel_management"
           className={`${
-            currentUrl == "/upload" && listItemActiveClass
-          } py-4 flex justify-center text-neutral-200 hover:bg-neutral-800 ease-in-out duration-300 cursor-pointer hover:text-yellow-400`}
+            currentUrl == "/parcel_management" && listItemActiveClass
+          } py-4   text-neutral-200 hover:bg-neutral-800 ease-in-out duration-300 cursor-pointer hover:text-yellow-400 ${
+            isExpanded ? "px-10" : "px-5"
+          }`}
         >
-          <span className="material-symbols-outlined">upload_file</span>
-          {isExpanded ? "Upload" : ""}
-          {isExpanded ? "File" : ""}
+          <span className="material-symbols-outlined">package_2</span>
+          {isExpanded && "Parcel Management"}
+        </Link>
+        <Link
+          href="/areas "
+          className={`py-4 ${
+            isExpanded ? "px-10 justify-start" : "px-5 justify-center"
+          } text-neutral-200 hover:bg-neutral-800 ease-in-out duration-300 cursor-pointer hover:text-yellow-400 `}
+        >
+          <span className="material-symbols-outlined">location_on</span>{" "}
+          {isExpanded ? "Areas" : ""}
         </Link>
         <Link
           href="/fleet"
-          className={`py-4 ${
+          className={`py-4 ${currentUrl == "/fleet" && listItemActiveClass} ${
             isExpanded ? "px-10" : "px-5"
           } text-neutral-200 hover:bg-neutral-800 ease-in-out duration-300 cursor-pointer hover:text-yellow-400`}
         >
@@ -67,14 +78,33 @@ const SidePanel = () => {
           {isExpanded ? "Fleet" : ""}
         </Link>
         <Link
+          href="/areas "
+          className={`py-4 ${currentUrl == "/areas" && listItemActiveClass} ${
+            isExpanded ? "px-10" : "px-5"
+          } text-neutral-200 hover:bg-neutral-800 ease-in-out duration-300 cursor-pointer hover:text-yellow-400`}
+        >
+          <span className="material-symbols-outlined">location_on</span>{" "}
+          {isExpanded ? "Areas" : ""}
+        </Link>
+        <Link
           href="/payroll"
-          className={`py-4 ${
+          className={`py-4 ${currentUrl == "/payroll" && listItemActiveClass} ${
             isExpanded ? "px-10" : "px-5"
           } text-neutral-200 hover:bg-neutral-800 ease-in-out duration-300 cursor-pointer hover:text-yellow-400`}
         >
           <span className="material-symbols-outlined">payments</span>{" "}
           {isExpanded ? "Payroll" : ""}
         </Link>
+        <Link
+          href="/payroll"
+          className={`py-4 ${
+            isExpanded ? "px-10" : "px-5"
+          } text-neutral-200 hover:bg-neutral-800 ease-in-out duration-300 cursor-pointer hover:text-yellow-400`}
+        >
+          <span className="material-symbols-outlined">hub</span>{" "}
+          {isExpanded ? "Hubs" : ""}
+        </Link>
+
         <li
           onClick={() => signOut()}
           className={`py-4 mt-auto mb-10 ${

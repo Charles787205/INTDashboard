@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import "leaflet/dist/leaflet.css";
 import { Provider } from "@/components";
+import { options } from "./api/auth/[...nextauth]/options";
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -24,13 +25,16 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const session = await getServerSession();
+  const session = await getServerSession(options);
   let bodyClass = `${geistSans.variable} ${geistMono.variable} antialiased bg-neutral-100`;
   let isSignedIn = false;
+
   if (session && session.user) {
     isSignedIn = true;
     bodyClass += " flex p-[10px] gap-[10px] w-full";
   }
+  console.log(`${session}, HELLOOOO`);
+
   return (
     <html lang="en">
       <body className={bodyClass}>

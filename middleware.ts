@@ -1,27 +1,27 @@
-import { withAuth } from "next-auth/middleware";
+import { getToken } from "next-auth/jwt";
+import { NextRequestWithAuth, withAuth } from "next-auth/middleware";
+import { NextRequest } from "next/server";
 
-export default withAuth(function middleware(req) {}, {
+export default withAuth(async function middleware(req: NextRequest) {}, {
   callbacks: {
     authorized: ({ req, token }) => {
-      // If the user is not logged in (no token), deny access to all pages
-      if (!token) return false;
-
-      // Check if the route is for the admin page
-      if (req.nextUrl.pathname !== "/auth/sign_in") {
-        // Here, you could add logic to check if the user has admin privileges
-        // For example: return token.role === 'admin';
-        return true; // Assuming the token check is passed, allow access to admin routes
-      }
-      if (req.nextUrl.pathname == "/auth/sign_in") {
+      const publicRoutes = ["/api/register"];
+      if (
+        publicRoutes.some((route) => req.nextUrl.pathname.startsWith(route))
+      ) {
         return true;
       }
-
-      // Allow access to non-admin routes for authenticated users
+      if (!token) {
+        return false;
+      }
       return true;
     },
   },
 });
 
 export const config = {
-  matcher: ["/"], // protect specific routes
+  matcher: [
+    "/((?!auth/sign_in|_next/static|_next/image|favicon.ico|images/.*).*)",
+    "/api/register", // Exclude sign-in, static files, and public images
+  ],
 };
