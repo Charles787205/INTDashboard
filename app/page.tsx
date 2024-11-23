@@ -156,11 +156,12 @@ const Dashboard = () => {
     fetchProductivity();
     setIsClient(true);
   }, [timeline]);
+
   return (
     <div className="flex flex-col w-full shadow-xl bg-white shadow-neutral-600 rounded-2xl p-5 relative">
       {user && (
-        <div className="flex flex-col">
-          <h1 className="text-3xl font-bold">
+        <div className="flex flex-col ">
+          <h1 className="text-xl 2xl:text-3xl font-bold">
             {`${
               user.firstName?.charAt(0).toUpperCase() +
                 user.firstName?.slice(1) || ""
@@ -169,7 +170,7 @@ const Dashboard = () => {
                 user.lastName?.slice(1) || ""
             }`}
           </h1>
-          <h2 className="text-lg font-semibold text-neutral-600">
+          <h2 className="2xl:text-lg font-semibold text-neutral-600">
             {user.position || ""}
           </h2>
         </div>
@@ -178,7 +179,7 @@ const Dashboard = () => {
         <select
           name=""
           id=""
-          className=" px-4 py-2 rounded border border-neutral-400 shadow cursor-pointer"
+          className=" px-2 2xl:px-4 py-1 bg-white text-sm 2xl:text-base 2xl:py-2 rounded border border-neutral-400 shadow cursor-pointer"
           onChange={(e) => {
             setTimeline({
               ...timeline,
@@ -209,47 +210,48 @@ const Dashboard = () => {
           href="/parcel_volume"
           className="flex flex-col  p-4 bg-gradient-to-r from-amber-600 to-amber-500 text-white rounded-lg shadow-lg mb-10 cursor-pointer hover:bg-gradient-to-l transition-all duration-1000 ease-in-out"
         >
-          <p className="text-lg font-bold">Total Parcels</p>
-          <p className="text-4xl font-bold">{dashboardData.total}</p>
+          <p className="2xl:text-lg font-bold">Total Parcels</p>
+          <p className="2xl:text-4xl font-bold">{dashboardData.total}</p>
         </Link>
         <div className="flex flex-col  p-4 bg-gradient-to-r from-green-600 to-green-500 cursor-pointer hover:bg-gradient-to-l  text-white rounded-lg shadow-lg mb-10">
-          <p className="text-lg font-bold">Delivered</p>
-          <p className="text-4xl font-bold">{dashboardData.delivered}</p>
+          <p className="2xl:text-lg font-bold">Delivered</p>
+          <p className="2xl:text-4xl font-bold">{dashboardData.delivered}</p>
         </div>
         <div className="flex flex-col  p-4 bg-gradient-to-r from-red-500 to-red-400 text-white cursor-pointer hover:bg-gradient-to-l rounded-lg shadow-lg mb-10">
-          <p className="text-lg font-bold">Canceled Deliveries</p>
-          <p className="text-4xl font-bold">{dashboardData.failed}</p>
+          <p className="2xl:text-lg font-bold">Canceled Deliveries</p>
+          <p className="2xl:text-4xl font-bold">{dashboardData.failed}</p>
         </div>
         <div className="flex flex-col  p-4 bg-gradient-to-r from-neutral-500 to-neutral-400 text-white cursor-pointer hover:bg-gradient-to-l rounded-lg shadow-lg mb-10">
-          <p className="text-lg font-bold">In Delivery</p>
-          <p className="text-4xl font-bold">{dashboardData.in_delivery}</p>
+          <p className="2xl:text-lg font-bold">In Delivery</p>
+          <p className="2xl:text-4xl font-bold">{dashboardData.in_delivery}</p>
         </div>
         <div className="flex flex-col  p-4 bg-gradient-to-r from-yellow-500 to-yellow-400 text-white cursor-pointer hover:bg-gradient-to-l rounded-lg shadow-lg mb-10">
-          <p className="text-lg font-bold">Pending</p>
-          <p className="text-4xl font-bold">{dashboardData.pending}</p>
+          <p className="2xl:text-lg font-bold">Pending</p>
+          <p className="2xl:text-4xl font-bold">{dashboardData.pending}</p>
+        </div>
+      </div>
+      <div className="flex mb-5 gap-3 w-full col-span-2">
+        <div className="rounded-xl shadow-lg border bg-neutral-100  p-5 col-span-2 w-full">
+          <p className="2xl:text-lg font-bold">KPI</p>
+          <p className="2xl:text-4xl font-bold">{kpi}%</p>
+        </div>
+        <div className="rounded-xl shadow-lg border bg-neutral-100  p-5 col-span-2 w-full">
+          <p className="2xl:text-lg font-bold">Productivity</p>
+          <p className="2xl:text-4xl font-bold">{productivity}%</p>
         </div>
       </div>
       <div className="grid grid-cols-5 gap-5 ">
-        <div className="flex flex-col gap-3 w-full col-span-2">
-          <div className="rounded-xl shadow-lg border bg-neutral-100  p-5 col-span-2 w-full">
-            <p className="text-lg font-bold">KPI</p>
-            <p className="text-4xl font-bold">{kpi}%</p>
-          </div>
-          <div className="rounded-xl shadow-lg border bg-neutral-100  p-5 col-span-2 w-full">
-            <p className="text-lg font-bold">Productivity</p>
-            <p className="text-4xl font-bold">{productivity}%</p>
-          </div>
-        </div>
-        <div className="rounded-xl shadow-lg border bg-neutral-100  p-5 col-span-3 row-span-2">
-          <ParcelChart data={parcelChartData} />
-        </div>
-        <div className="rounded row-span-1 min-h-[400px] col-span-2">
+        <div className="rounded row-span-1 min-h-[400px] col-span-2 ">
           <Map areas={areas} center={mapConfig.center} zoom={mapConfig.zoom} />
         </div>
+        <div className="rounded-xl shadow-lg border bg-neutral-100  p-5 col-span-3 ">
+          <ParcelChart data={parcelChartData} />
+        </div>
+
         <div className="rounded-xl shadow-lg border bg-neutral-100 col-span-2 justify-center items-center flex w-full">
           <ParcelTypeChart data={parcelType} />
         </div>
-        <div className="rounded-xl shadow-lg border bg-neutral-100  p-5 col-span-2">
+        <div className="rounded-xl shadow-lg border bg-neutral-100  p-5 col-span-3 row-span-2">
           <LocationChart data={parcelChartData} />
         </div>
       </div>

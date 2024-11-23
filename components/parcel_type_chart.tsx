@@ -33,8 +33,6 @@ const ParcelTypeChart = ({
       text: "Number of Parcels",
       align: "center",
       style: {
-        fontSize: "20px",
-        fontWeight: "bold",
         color: "#373d3f",
       },
     },

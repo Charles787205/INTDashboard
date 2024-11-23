@@ -180,7 +180,7 @@ const Areas = () => {
 
   function onUploadCSVClicked() {
     swal.fire({
-      title: "Upload CSV",
+      title: "Upload MyMaps CSV",
       html: `
       <input type="file" id="file" name="file" accept=".csv" class="w-full p-2 border border-neutral-500 rounded-lg">
       `,
@@ -291,7 +291,7 @@ const Areas = () => {
             </button>
           </div>
           <div className="flex  rounded overflow-auto mt-5 max-h-[calc(100vh-15em)] gap-10">
-            <table className=" rounded shadow w-full   overflow-auto text-center     [&_td]:h-[50px]  [&_td]:px-5">
+            <table className=" rounded shadow w-full text-sm    overflow-auto text-center     [&_td]:h-[50px]  [&_td]:px-5">
               <thead className="rounded-t-lg sticky top-0 w-full ">
                 <tr className="bg-neutral-800  text-white  ">
                   <th>Area</th>
@@ -304,32 +304,32 @@ const Areas = () => {
                   areas.map((area, index) => (
                     <tr
                       key={index}
-                      className="even:bg-amber-100 text-center  min-w-full cursor-pointer hover:bg-neutral-200 "
+                      className="even:bg-amber-100 text-center  min-w-full cursor-pointer hover:bg-neutral-200"
                     >
-                      <td className=" ">{area.name}</td>
-                      <td className=" ">
+                      <td className=" text-sm 2xl:text-base">{area.name}</td>
+                      <td className=" text-sm 2xl:text-base">
                         {area.portCodes &&
                           area.portCodes.length > 0 &&
                           area.portCodes[0].code}
                       </td>
                       <td className="flex justify-center items-center gap-2">
                         <button
-                          className="bg-blue-600 hover:scale-105  text-white rounded px-1 py-1 flex"
+                          className="bg-blue-600 hover:scale-105  text-white rounded px-1 2xl:py-1 flex"
                           title="Edit area"
                           onClick={() => {
                             onEditAreaClicked(area);
                           }}
                         >
-                          <span className="material-symbols-outlined my-auto ">
+                          <span className="material-symbols-outlined my-auto text-base 2xl:text-base">
                             edit
                           </span>
                         </button>
                         <button
-                          className="bg-red-600 hover:scale-105  text-white rounded px-1 py-1 flex"
+                          className="bg-red-600 hover:scale-105  text-white rounded px-1 2xl:py-1 flex"
                           title="Delete area"
                           onClick={() => onDeleteAreaClicked(area)}
                         >
-                          <span className="material-symbols-outlined  ">
+                          <span className="material-symbols-outlined  my-auto text-base 2xl:text-base">
                             delete
                           </span>
                         </button>

@@ -64,30 +64,30 @@ const ParcelPane = () => {
       {!isLoading ? (
         <>
           <div className="flex justify-between w-full">
-            <h2 className="font-bold text-xl">Runsheets</h2>
+            <h2 className="font-bold lg:text-lg 2xl:text-xl">Runsheets</h2>
             <div className="flex gap-2">
               <button
-                className="bg-neutral-500 text-white rounded-md p-1 flex items-baseline"
+                className="bg-neutral-500 text-white rounded-md p-1 flex items-baseline "
                 title="Add Export Data"
                 onClick={openCSVModal}
               >
-                <span className="material-symbols-outlined text-2xl">
+                <span className="material-symbols-outlined text-[20px] 2xl:text-2xl">
                   update
                 </span>
               </button>
               <button
-                className="bg-yellow-500 text-white rounded-md p-1 flex items-baseline"
+                className="bg-yellow-500 text-white rounded-md  p-1 flex items-baseline"
                 title="Add Item Handover file"
                 onClick={openModal}
               >
-                <span className="material-symbols-outlined text-2xl">
+                <span className="material-symbols-outlined text-[20px] 2xl:text-2xl">
                   playlist_add
                 </span>
               </button>
             </div>
           </div>
-          <div className="rounded overflow-hidden mt-10">
-            <table className="text-center h-full w-full">
+          <div className="rounded overflow-hidden mt-5">
+            <table className="text-center h-full w-full text-sm 2xl:text-base font-thin">
               <thead>
                 <tr className="bg-black text-white">
                   <th>Runsheet Number</th>
@@ -99,7 +99,7 @@ const ParcelPane = () => {
               <tbody>
                 {runsheets &&
                   runsheets.map((runsheet, ind) => (
-                    <tr key={ind} className="odd:bg-gray-300">
+                    <tr key={ind} className="odd:bg-gray-300 2xl:text-base ">
                       <td>{runsheet.number}</td>
                       <td>
                         {new Date(Date.parse(runsheet.date_created))
@@ -110,8 +110,8 @@ const ParcelPane = () => {
                       </td>
                       <td>{runsheet.parcel_count}</td>
                       <td className="flex w-full justify-center">
-                        <button className="text-white p-1 shadow rounded bg-green-500 flex items-baseline">
-                          <span className="material-symbols-outlined">
+                        <button className="text-white p-1 shadow rounded bg-green-500 my-1 flex items-baseline">
+                          <span className="material-symbols-outlined text-[16px] 2xl:text-md">
                             edit
                           </span>
                         </button>

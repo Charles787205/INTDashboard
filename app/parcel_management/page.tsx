@@ -39,7 +39,7 @@ const ParcelManagement = () => {
       </div>
 
       <div
-        className="relative w-full h-6 bg-gray-400 rounded-md overflow-hidden group shadow mt-5"
+        className="relative w-full h-3 2xl:h-6 bg-gray-400 rounded-md overflow-hidden group shadow mt-5"
         title="Total Parcels"
       >
         <div
@@ -65,50 +65,50 @@ const ParcelManagement = () => {
         ></div>
       </div>
       <div className="flex w-full justify-center gap-5 mt-5">
-        <div className="group-[pending] shadow-lg bg-neutral-100 rounded-xl shadow-neutral-400 p-5 w-full min-w-52 min-h-52 text-wrap flex flex-col items-center justify-center">
-          <span className="material-symbols-outlined text-[50px]">
+        <div className="group-[pending] shadow-lg bg-neutral-100 rounded-xl shadow-neutral-400 lg:p-2 2xl:p-5 w-full 2xl:min-w-52 2xl:min-h-52 text-wrap flex flex-col items-center justify-center">
+          <span className="material-symbols-outlined lg:text-2xl 2xl:text-[50px]">
             package_2
           </span>
-          <p className="text-pretty text-ellipsis break-all text-2xl">
+          <p className="text-pretty text-ellipsis break-all lg:text-lg 2xl:text-2xl">
             {parcelCount.total}
           </p>
-          <p className="font-bold text-2xl">Total Parcels</p>
+          <p className="font-bold  2xl:text-2xl">Total Parcels</p>
         </div>
-        <div className="group-[pending] shadow-lg bg-neutral-100 rounded-xl shadow-neutral-400 p-5 w-full min-w-52 min-h-52 text-wrap flex flex-col items-center justify-center">
-          <span className="material-symbols-outlined text-[50px]">
+        <div className="group-[pending] shadow-lg bg-neutral-100 rounded-xl shadow-neutral-400 2xl:p-5 w-full 2xl:min-w-52 2xl:min-h-52 text-wrap flex flex-col items-center justify-center">
+          <span className="material-symbols-outlined 2xl:text-[50px]">
             local_shipping
           </span>
-          <p className="text-pretty text-ellipsis break-all text-2xl">
+          <p className="text-pretty text-ellipsis break-all 2xl:text-2xl">
             {parcelCount.pending}
           </p>
-          <p className="font-bold text-2xl">Pending</p>
+          <p className="font-bold 2xl:text-2xl">Pending</p>
         </div>
-        <div className="shadow-lg bg-neutral-100 rounded-xl shadow-neutral-400 p-5 w-full min-w-52 min-h-52 text-wrap flex flex-col items-center justify-center">
-          <span className="material-symbols-outlined text-[50px]">
+        <div className="shadow-lg bg-neutral-100 rounded-xl shadow-neutral-400 2xl:p-5 w-full 2xl:min-w-52 2xl:min-h-52 text-wrap flex flex-col items-center justify-center">
+          <span className="material-symbols-outlined 2xl:text-[50px]">
             local_shipping
           </span>
-          <p className="text-pretty text-ellipsis break-all text-2xl">
+          <p className="text-pretty text-ellipsis break-all 2xl:text-2xl">
             {parcelCount.in_delivery}
           </p>
-          <p className="font-bold text-2xl">In Delivery</p>
+          <p className="font-bold 2xl:text-2xl">In Delivery</p>
         </div>
-        <div className="shadow-lg bg-neutral-100 rounded-xl shadow-neutral-400 p-5 w-full min-w-52 min-h-52 text-wrap flex flex-col items-center justify-center">
-          <span className="material-symbols-outlined text-[50px]">
+        <div className="shadow-lg bg-neutral-100 rounded-xl shadow-neutral-400 2xl:p-5 w-full 2xl:min-w-52 2xl:min-h-52 text-wrap flex flex-col items-center justify-center">
+          <span className="material-symbols-outlined 2xl:text-[50px]">
             local_shipping
           </span>
-          <p className="text-pretty text-ellipsis break-all text-2xl">
+          <p className="text-pretty text-ellipsis break-all 2xl:text-2xl">
             {parcelCount.delivered}
           </p>
-          <p className="font-bold text-2xl">Delivered</p>
+          <p className="font-bold 2xl:text-2xl">Delivered</p>
         </div>
-        <div className="shadow-lg bg-neutral-100 rounded-xl shadow-neutral-400 p-5 w-full min-w-52 min-h-52 text-wrap flex flex-col items-center justify-center">
-          <span className="material-symbols-outlined text-[50px]">
+        <div className="shadow-lg bg-neutral-100 rounded-xl shadow-neutral-400 2xl:p-5 w-full 2xl:min-w-52 2xl:min-h-52 text-wrap flex flex-col items-center justify-center">
+          <span className="material-symbols-outlined 2xl:text-[50px]">
             local_shipping
           </span>
-          <p className="text-pretty text-ellipsis break-all text-2xl">
+          <p className="text-pretty text-ellipsis break-all 2xl:text-2xl">
             {parcelCount.failed}
           </p>
-          <p className="font-bold text-2xl">Failed</p>
+          <p className="font-bold 2xl:text-2xl">Failed</p>
         </div>
       </div>
       <ParcelPane />

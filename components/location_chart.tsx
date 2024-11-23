@@ -26,8 +26,6 @@ const LocationChart = ({
         text: "Number of Parcels Delivered",
         align: "center",
         style: {
-          fontSize: "20px",
-          fontWeight: "bold",
           color: "#373d3f",
         },
       },
