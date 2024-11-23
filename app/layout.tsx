@@ -1,9 +1,11 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import "leaflet/dist/leaflet.css";
 import { Provider } from "@/components";
 import { options } from "./api/auth/[...nextauth]/options";
+import { getServerSession } from "next-auth";
+
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -19,7 +21,14 @@ export const metadata: Metadata = {
   title: "INT Dashboard",
   description: "A dashboard for INT admins",
 };
-import { getServerSession } from "next-auth";
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+};
+
 export default async function RootLayout({
   children,
 }: Readonly<{
@@ -32,6 +41,8 @@ export default async function RootLayout({
   if (session && session.user) {
     isSignedIn = true;
     bodyClass += " flex p-[10px] gap-[10px] w-full";
+  } else {
+    isSignedIn = false;
   }
   console.log(`${session}, HELLOOOO`);
 

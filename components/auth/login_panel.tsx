@@ -32,7 +32,7 @@ const LoginPanel = ({ setIsRegister }: { setIsRegister: Function }) => {
     }
   };
   return (
-    <div className="flex shadow-xl flex-col md:flex-row bg-transparent bg-opacity-25 backdrop-blur-sm border-2 border-white shadow-neutral-500 z-20   min-h-[25em]  max-h-[600px] overflow-hidden rounded-lg relative ">
+    <div className="flex shadow-xl flex-col md:flex-row bg-transparent bg-opacity-25 backdrop-blur-sm border-2 my-auto border-white shadow-neutral-500 z-20  rounded-lg relative ">
       <div className="flex items-center flex-col p-8 z-20">
         <Image
           src="/images/int_icon.png"
